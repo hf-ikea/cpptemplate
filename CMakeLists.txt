@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(blank)
+project(testing)
 
 # Get all files in the source directory recursively
 file(GLOB_RECURSE SRC "src/*.cpp" "src/*.c")
