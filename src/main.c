@@ -1,26 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
-#define QUADP(a, b, c) ((-(b) + sqrt(((b) * (b)) - (4 * (a) * (c)))) / (2 * (a)))
-#define QUADM(a, b, c) ((-(b) - sqrt(((b) * (b)) - (4 * (a) * (c)))) / (2 * (a)))
-#define QUAD(a, b, c) QUADP(a, b, c), QUADM(a, b, c)
-#define SOLVE(x, a, b, c) (((a) * ((x) * (x))) + ((b) * (x)) + c)
+struct cat {
+    int age;
+    int weight;
+    char* name;
+};
+
+void set_weight(struct cat* kitty, int new_weight) {
+    kitty->weight = new_weight;
+}
 
 int main() {
-    int a = 2;
-    int b = 10;
-    int c = 5;
+    struct cat kitty = {.age=8, .name="Xena"};
+    set_weight(&kitty, 17);
 
-    double solve1 = QUADP(a, b, c);
-    double solve2 = QUADM(a, b, c);
-    printf("x = %f or x = %f\n", solve1, solve2);
-
-
-    double output1 = SOLVE(solve1, a, b, c);
-    double output2 = SOLVE(solve2, a, b, c);
-
-    printf("Solve1: %f, Solve2: %f", output1, output2);
-
+    printf("Age: %d, Weight: %d, Name: %s", kitty.age, kitty.weight, kitty.name); // Age: 8, Weight: 17, Name: Xena
     return 0;
 }
